@@ -1,0 +1,46 @@
+/*
+ * We need to override trix.css's image gallery styles to accommodate the
+ * <action-text-attachment> element we wrap around attachments. Otherwise,
+ * images in galleries will be squished by the max-width: 33%; rule.
+ */
+.trix-content .attachment-gallery > action-text-attachment,
+.trix-content .attachment-gallery > .attachment {
+  flex: 1 0 33%;
+  padding: 0 0.5em;
+  max-width: 33%;
+}
+
+.trix-content .attachment-gallery.attachment-gallery--2 > action-text-attachment,
+.trix-content .attachment-gallery.attachment-gallery--2 > .attachment, 
+.trix-content .attachment-gallery.attachment-gallery--4 > action-text-attachment,
+.trix-content .attachment-gallery.attachment-gallery--4 > .attachment {
+  flex-basis: 50%;
+  max-width: 50%;
+}
+
+.trix-content action-text-attachment .attachment {
+  padding: 0 !important;
+  max-width: 100% !important;
+}
+
+/* Styles personnalisés pour l'éditeur Trix */
+trix-editor {
+  @apply block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm;
+  min-height: 25em;  /* Augmentation de la hauteur */
+  max-height: 50em;  /* Hauteur maximale avant le scroll */
+  overflow-y: auto;  /* Ajout d'une barre de défilement si nécessaire */
+  padding: 1rem;     /* Plus d'espace pour le contenu */
+  line-height: 1.5;  /* Meilleur espacement des lignes */
+}
+
+.trix-button-group {
+  @apply border border-gray-300 rounded-md overflow-hidden;
+}
+
+.trix-button {
+  @apply p-2 border-r border-gray-300 text-gray-600 hover:bg-gray-50;
+}
+
+.trix-content {
+  @apply prose prose-sm max-w-none;
+}

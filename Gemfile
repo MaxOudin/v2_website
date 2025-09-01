@@ -42,7 +42,7 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "bootsnap", require: false
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-# gem "image_processing", "~> 1.2"
+gem "image_processing", "~> 1.2"
 
 gem 'devise', '~> 4.9', '>= 4.9.4'
 
@@ -52,6 +52,8 @@ gem "tailwindcss-rails", "~> 4.3"
 gem "solid_queue", "~> 1.2"
 gem "solid_cache", "~> 0.7.0"
 gem "solid_cable", "~> 1.0"
+
+gem 'friendly_id', '~> 5.5.0'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -75,6 +77,14 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+
+    # Tests + Factory Bot pour les tests
+  gem "rspec-rails", "~> 7.1"
+  gem "factory_bot_rails"
+  gem "database_cleaner"
+
+  # # Helper pour les tests Models et Pundit
+  gem 'shoulda-matchers', '~> 6.0'
 end
 
 
