@@ -1,0 +1,61 @@
+<footer class="bg-gray-900 text-white py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section texte de présentation -->
+    <div class="text-center mb-12">
+      <p class="text-xl font-medium mb-4">
+        Maxime Oudin, développeur web à Bordeaux et Paris.
+      </p>
+      <p class="text-gray-300 text-lg max-w-2xl mx-auto">
+        Indépendant, entrepreneur, TPE/PME ou association je m'engage à offrir la solution adaptée à votre besoin.
+      </p>
+    </div>
+
+    <!-- Section contact -->
+    <div class="flex flex-col sm:flex-row justify-center items-center gap-6 mb-12" id="contact-infos">
+      <%= link_to "tel:+33664710483", class: "flex items-center gap-3 px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-xl transition-colors duration-200 text-white" do %>
+        <i class="fa-solid fa-phone text-lg"></i>
+        <span class="font-medium">Téléphone</span>
+      <% end %>
+
+      <%= link_to "mailto:contact@maximeoudin.fr", class: "flex items-center gap-3 px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-xl transition-colors duration-200 text-white" do %>
+        <i class="fa-solid fa-envelope text-lg"></i>
+        <span class="font-medium">Email</span>
+      <% end %>
+    </div>
+
+    <!-- Section finale -->
+    <div class="border-t border-gray-800 pt-8">
+      <!-- Réseaux sociaux -->
+      <div class="flex justify-center mb-8">
+        <div class="flex gap-6">
+          <a href="https://www.linkedin.com/in/maxime-oudin-developer/" 
+             aria-label="Venez découvrir le profil LinkedIn de Maxime Oudin développeur web" 
+             target="_blank"
+             class="text-2xl text-gray-400 hover:text-white transition-colors duration-200">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://github.com/MaxOudin" 
+             aria-label="Lien du Github de Maxime Oudin développeur web" 
+             target="_blank"
+             class="text-2xl text-gray-400 hover:text-white transition-colors duration-200">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Copyright et mentions légales -->
+      <div class="text-center text-gray-400 space-y-2">
+        <p>Copyright © <%= Date.today.year %> Monsieur Maxime Oudin</p>
+        <p>Créé par Maxime Oudin développeur web Ruby on Rails à Bordeaux.</p>
+        <%= link_to "Mentions légales", "#", 
+            aria_label: "Mentions légales", 
+            class: "inline-block mt-2 text-gray-400 hover:text-white underline transition-colors duration-200" %>
+      </div>
+    </div>
+
+    <!-- Carbon badge -->
+    <div id="wcb" class="carbonbadge wcb-d mt-8 flex justify-center">
+    </div>
+    <script src="https://unpkg.com/website-carbon-badges@1.1.3/b.min.js" defer></script>
+  </div>
+</footer>
