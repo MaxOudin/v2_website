@@ -1,57 +1,288 @@
-<% content_for :meta_title, "Développeur Web Indépendant à Bordeaux | Maxime Oudin" %>
-<% content_for :meta_description, "Expert en développement web Ruby on Rails et JavaScript. Création d'applications web performantes et sur mesure à Bordeaux. Découvrez mes services de développement web." %>
+<% content_for :meta_title, "Développeur Ruby on Rails Expert à Bordeaux | Maxime Oudin" %>
+<% content_for :meta_description, "Développeur Ruby on Rails senior spécialisé dans la création d'applications web performantes. Expert en développement full-stack, APIs et solutions sur mesure à Bordeaux. Transformez vos idées en applications web robustes." %>
 
 <!-- Hero Section -->
 <main class="relative overflow-hidden" role="main">
-  <!-- Fond avec motif et gradient -->
-  <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-indigo-50" aria-hidden="true">
-    <div class="absolute inset-0 bg-[radial-gradient(#3b82f620_1px,transparent_1px)] [background-size:20px_20px] opacity-30"></div>
+  <!-- Fond avec motif et gradient sobre -->
+  <div class="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100" aria-hidden="true">
+    <div class="absolute inset-0 bg-[radial-gradient(#6b728010_1px,transparent_1px)] [background-size:24px_24px] opacity-30"></div>
   </div>
 
   <!-- Section Hero -->
   <section class="relative min-h-screen flex items-center py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="lg:grid lg:grid-cols-12 lg:gap-12 items-center">
+      <div class="lg:grid lg:grid-cols-12 lg:gap-16 items-center">
         <!-- Contenu principal -->
         <div class="text-center lg:text-left lg:col-span-7">
-          <!-- Badge statut -->
-          <div class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-green-50 text-green-700 border border-green-200 mb-8 animate-fade-in-up shadow-sm">
-            <div class="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></div>
-            Disponible pour de nouveaux projets
-          </div>
-
-          <!-- En-tête -->
+          <!-- En-tête avec mise en avant Ruby on Rails -->
           <div class="space-y-6">
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">
-              <span class="block text-gray-600 text-2xl sm:text-3xl font-normal mb-2">Bonjour, je suis</span>
-              <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">Maxime Oudin</span>
+            <h1 class="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight">
+              <span class="block text-gray-500 text-xl sm:text-2xl font-normal mb-3">Bonjour, je suis</span>
+              <span class="text-gray-900">Maxime Oudin</span>
             </h1>
             
-            <div class="flex items-center justify-center lg:justify-start space-x-3">
-              <%= image_tag "yellow_logo.svg", class: "w-8 h-8 animate-float", alt: "Logo Maxime Oudin - Développeur Web Bordeaux" %>
-              <span class="text-xl text-gray-700 dark:text-gray-300 font-medium">Développeur Web Indépendant</span>
+            <!-- Spécialisation Ruby on Rails mise en avant -->
+            <div class="flex flex-col items-center lg:items-start space-y-4">
+              <div class="flex items-center space-x-3">
+                <%= image_tag "yellow_logo.svg", class: "w-10 h-10", alt: "Logo Maxime Oudin - Développeur Ruby on Rails Bordeaux" %>
+                <span class="text-2xl text-gray-800 font-semibold">Développeur Ruby on Rails</span>
+              </div>
+              
+              <!-- Badges de compétences -->
+              <div class="flex flex-wrap gap-3 justify-center lg:justify-start">
+                <span class="px-4 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded-full border border-gray-200">
+                  <i class="fab fa-ruby mr-2"></i>Ruby on Rails
+                </span>
+                <span class="px-4 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded-full border border-gray-200">
+                  <i class="fab fa-js-square mr-2"></i>JavaScript
+                </span>
+                <span class="px-4 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded-full border border-gray-200">
+                  <i class="fas fa-database mr-2"></i>PostgreSQL
+                </span>
+              </div>
             </div>
           </div>
 
-          <!-- Description -->
-          <p class="mt-8 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto lg:mx-0">
-            Je crée des <span class="font-semibold text-indigo-600 dark:text-indigo-400">applications web sur mesure</span> avec une approche centrée sur l'expérience utilisateur et les performances. Basé à <span class="font-semibold">Bordeaux</span>, je travaille avec des clients dans toute la France.
-          </p>
+          <!-- Description améliorée -->
+          <div class="mt-10 space-y-4">
+            <p class="text-xl text-gray-700 max-w-3xl mx-auto lg:mx-0 leading-relaxed">
+              Je transforme vos <span class="font-bold text-gray-900">idées en applications web robustes</span> avec 
+              <span class="font-bold text-gray-900">Ruby on Rails</span> et les technologies modernes. 
+              Spécialisé dans le développement <span class="font-semibold text-gray-800">full-stack</span> et les 
+              <span class="font-semibold text-gray-800">APIs performantes</span>.
+            </p>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto lg:mx-0">
+              Basé à <span class="font-semibold text-gray-800">Bordeaux</span>, j'accompagne les startups et entreprises 
+              dans la création de solutions web sur mesure, de la conception au déploiement.
+            </p>
+          </div>
 
-          <!-- Boutons CTA -->
-          <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <!-- Statistiques de crédibilité -->
+          <div class="mt-12 grid grid-cols-3 gap-8 max-w-md mx-auto lg:mx-0">
+            <div class="text-center">
+              <div class="text-3xl font-bold text-gray-900"><%= Date.today.year - 2023 %></div>
+              <div class="text-sm text-gray-600">Années d'expérience</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold text-gray-900"><%= Project.count %>+</div>
+              <div class="text-sm text-gray-600">Projets réalisés</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold text-gray-900">100%</div>
+              <div class="text-sm text-gray-600">Satisfaction client</div>
+            </div>
+          </div>
+
+          <!-- Boutons CTA sobres -->
+          <div class="mt-12 flex flex-col sm:flex-row gap-6 justify-center lg:justify-start">
             <%= link_to projects_path, 
-                class: "inline-flex items-center justify-center px-6 py-3 rounded-xl text-base font-medium text-white bg-gradient-to-r from-indigo-600 to-blue-500 hover:from-indigo-500 hover:to-blue-400 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl", 
-                title: "Découvrir mes projets de développement web" do %>
-              <i class="fas fa-code-branch mr-2"></i>
-              <span>Voir mes projets</span>
+                class: "inline-flex items-center justify-center px-8 py-4 rounded-xl text-lg font-semibold text-white bg-gray-900 hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl", 
+                title: "Découvrir mes projets Ruby on Rails" do %>
+              <i class="fas fa-code-branch mr-3"></i>
+              <span>Voir mes réalisations</span>
+              <i class="fas fa-arrow-right ml-3"></i>
             <% end %>
 
             <a href="#contact" 
-               class="inline-flex items-center justify-center px-6 py-3 rounded-xl text-base font-medium text-gray-700 dark:text-white bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 hover:border-indigo-500 dark:hover:border-indigo-500 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl">
-              <i class="fa-solid fa-envelope mr-2"></i>
-              <span>Me contacter</span>
+               class="inline-flex items-center justify-center px-8 py-4 rounded-xl text-lg font-semibold text-gray-900 bg-white border-2 border-gray-300 hover:border-gray-400 hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-xl">
+              <i class="fa-solid fa-envelope mr-3"></i>
+              <span>Démarrer un projet</span>
             </a>
+          </div>
+        </div>
+
+        <!-- Section visuelle avec code Ruby on Rails -->
+        <div class="mt-16 lg:mt-0 lg:col-span-5">
+          <div class="relative">
+            <!-- Terminal avec code Ruby on Rails -->
+            <div class="bg-gray-900 rounded-2xl shadow-2xl overflow-hidden">
+              <div class="flex items-center px-4 py-3 bg-gray-800 border-b border-gray-700">
+                <div class="flex space-x-2">
+                  <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                  <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                  <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                </div>
+                <div class="ml-4 text-gray-400 text-sm font-mono">Terminal - Ruby on Rails</div>
+              </div>
+              <div class="p-6 font-mono text-sm">
+                <div class="text-green-400 mb-2">$ rails new mon_app</div>
+                <div class="text-blue-400 mb-2">=> Création de l'application...</div>
+                <div class="text-yellow-400 mb-2">=> Configuration de la base de données</div>
+                <div class="text-purple-400 mb-2">=> Installation des gems</div>
+                <div class="text-green-400 mb-4">=> Application créée avec succès!</div>
+                
+                <div class="text-gray-300 mb-2">class ApplicationController &lt; ActionController::Base</div>
+                <div class="text-gray-300 ml-4 mb-2">before_action :authenticate_user!</div>
+                <div class="text-gray-300 mb-2">end</div>
+                
+                <div class="text-green-400 mt-4">$ rails server</div>
+                <div class="text-blue-400">=> Server démarré sur http://localhost:3000</div>
+              </div>
+            </div>
+            
+            <!-- Éléments décoratifs sobres -->
+            <div class="absolute -top-4 -right-4 w-6 h-6 bg-gray-400 rounded-full opacity-60"></div>
+            <div class="absolute -bottom-4 -left-4 w-4 h-4 bg-gray-500 rounded-full opacity-60"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Compétences Techniques -->
+  <section class="relative py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+          Expertise Technique
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Maîtrise des technologies modernes pour créer des applications web performantes et évolutives
+        </p>
+      </div>
+
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <!-- Ruby on Rails - Mise en avant principale -->
+        <div class="group relative">
+          <div class="relative p-8 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+            <div class="text-center">
+              <div class="w-16 h-16 bg-gray-900 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <i class="fab fa-ruby text-3xl text-white"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900 mb-4">Ruby on Rails</h3>
+              <p class="text-gray-600 mb-6">
+                Framework web robuste pour le développement rapide d'applications full-stack avec une architecture MVC éprouvée.
+              </p>
+              <div class="space-y-2">
+                <div class="flex justify-between text-sm">
+                  <span>Maîtrise</span>
+                  <span class="font-semibold text-gray-900">Expert</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                  <div class="bg-gray-900 h-2 rounded-full w-full"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- JavaScript & Frontend -->
+        <div class="group relative">
+          <div class="relative p-8 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+            <div class="text-center">
+              <div class="w-16 h-16 bg-gray-800 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <i class="fab fa-js-square text-3xl text-white"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900 mb-4">JavaScript & Frontend</h3>
+              <p class="text-gray-600 mb-6">
+                Développement d'interfaces utilisateur dynamiques avec les frameworks modernes et les meilleures pratiques.
+              </p>
+              <div class="space-y-2">
+                <div class="flex justify-between text-sm">
+                  <span>Maîtrise</span>
+                  <span class="font-semibold text-gray-900">Avancé</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                  <div class="bg-gray-800 h-2 rounded-full w-4/5"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Base de données -->
+        <div class="group relative">
+          <div class="relative p-8 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+            <div class="text-center">
+              <div class="w-16 h-16 bg-gray-700 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-database text-3xl text-white"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900 mb-4">Base de données</h3>
+              <p class="text-gray-600 mb-6">
+                Conception et optimisation de bases de données PostgreSQL avec des requêtes performantes et une architecture scalable.
+              </p>
+              <div class="space-y-2">
+                <div class="flex justify-between text-sm">
+                  <span>Maîtrise</span>
+                  <span class="font-semibold text-gray-900">Expert</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                  <div class="bg-gray-700 h-2 rounded-full w-full"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- APIs & Intégrations -->
+        <div class="group relative">
+          <div class="relative p-8 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+            <div class="text-center">
+              <div class="w-16 h-16 bg-gray-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-plug text-3xl text-white"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900 mb-4">APIs & Intégrations</h3>
+              <p class="text-gray-600 mb-6">
+                Développement d'APIs RESTful robustes et intégration avec des services tiers pour des solutions complètes.
+              </p>
+              <div class="space-y-2">
+                <div class="flex justify-between text-sm">
+                  <span>Maîtrise</span>
+                  <span class="font-semibold text-gray-900">Avancé</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                  <div class="bg-gray-600 h-2 rounded-full w-4/5"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DevOps & Déploiement -->
+        <div class="group relative">
+          <div class="relative p-8 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+            <div class="text-center">
+              <div class="w-16 h-16 bg-gray-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-server text-3xl text-white"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900 mb-4">DevOps & Déploiement</h3>
+              <p class="text-gray-600 mb-6">
+                Mise en production et maintenance d'applications avec Docker, CI/CD et monitoring pour une disponibilité optimale.
+              </p>
+              <div class="space-y-2">
+                <div class="flex justify-between text-sm">
+                  <span>Maîtrise</span>
+                  <span class="font-semibold text-gray-900">Intermédiaire</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                  <div class="bg-gray-500 h-2 rounded-full w-3/5"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tests & Qualité -->
+        <div class="group relative">
+          <div class="relative p-8 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+            <div class="text-center">
+              <div class="w-16 h-16 bg-gray-400 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-bug text-3xl text-white"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900 mb-4">Tests & Qualité</h3>
+              <p class="text-gray-600 mb-6">
+                Développement test-driven avec RSpec, tests d'intégration et bonnes pratiques pour un code maintenable.
+              </p>
+              <div class="space-y-2">
+                <div class="flex justify-between text-sm">
+                  <span>Maîtrise</span>
+                  <span class="font-semibold text-gray-900">Avancé</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                  <div class="bg-gray-400 h-2 rounded-full w-4/5"></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -59,83 +290,411 @@
   </section>
 
   <!-- Section Services -->
-  <section class="relative py-20 bg-gradient-to-b from-white to-blue-50">
+  <section class="relative py-20 bg-gradient-to-b from-gray-50 to-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center">
-        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
           Mes Services
         </h2>
-        <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-          Des solutions web adaptées à vos besoins, de la conception au déploiement.
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Des solutions web complètes et sur mesure, de la conception à la mise en production
         </p>
       </div>
 
-      <div class="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        <!-- Développement Web -->
-        <div class="group">
-          <div class="relative p-8 bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:border-blue-100 transition-all duration-200">
-            <div class="text-blue-600 mb-4">
-              <i class="fas fa-code text-3xl"></i>
+      <div class="grid gap-8 lg:grid-cols-3">
+        <!-- Développement Web Full-Stack -->
+        <div class="group relative">
+          <div class="relative p-8 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+            <div class="text-center mb-8">
+              <div class="w-20 h-20 bg-gray-900 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-code text-3xl text-white"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900 mb-4">Développement Full-Stack</h3>
+              <p class="text-gray-600 leading-relaxed">
+                Création d'applications web complètes avec Ruby on Rails, de l'architecture backend aux interfaces utilisateur modernes.
+              </p>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-4">Développement Web</h3>
-            <p class="text-gray-600">
-              Création d'applications web performantes et évolutives avec Ruby on Rails et JavaScript.
-            </p>
+            
+            <div class="space-y-4">
+              <div class="flex items-start space-x-3">
+                <div class="w-2 h-2 bg-gray-900 rounded-full mt-2 flex-shrink-0"></div>
+                <span class="text-gray-700">Applications web sur mesure</span>
+              </div>
+              <div class="flex items-start space-x-3">
+                <div class="w-2 h-2 bg-gray-900 rounded-full mt-2 flex-shrink-0"></div>
+                <span class="text-gray-700">Architecture MVC robuste</span>
+              </div>
+              <div class="flex items-start space-x-3">
+                <div class="w-2 h-2 bg-gray-900 rounded-full mt-2 flex-shrink-0"></div>
+                <span class="text-gray-700">Interfaces utilisateur responsive</span>
+              </div>
+              <div class="flex items-start space-x-3">
+                <div class="w-2 h-2 bg-gray-900 rounded-full mt-2 flex-shrink-0"></div>
+                <span class="text-gray-700">Optimisation des performances</span>
+              </div>
+            </div>
+            
+            <div class="mt-8 pt-6 border-t border-gray-100">
+              <div class="text-sm text-gray-500 mb-2">Technologies principales</div>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gray-100 text-gray-800 text-xs font-semibold rounded-full">Ruby on Rails</span>
+                <span class="px-3 py-1 bg-gray-100 text-gray-800 text-xs font-semibold rounded-full">JavaScript</span>
+                <span class="px-3 py-1 bg-gray-100 text-gray-800 text-xs font-semibold rounded-full">PostgreSQL</span>
+              </div>
+            </div>
           </div>
         </div>
 
         <!-- API & Intégrations -->
-        <div class="group">
-          <div class="relative p-8 bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:border-blue-100 transition-all duration-200">
-            <div class="text-blue-600 mb-4">
-              <i class="fas fa-plug text-3xl"></i>
+        <div class="group relative">
+          <div class="relative p-8 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+            <div class="text-center mb-8">
+              <div class="w-20 h-20 bg-gray-800 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-plug text-3xl text-white"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900 mb-4">APIs & Intégrations</h3>
+              <p class="text-gray-600 leading-relaxed">
+                Développement d'APIs RESTful performantes et intégration avec des services tiers pour des solutions complètes.
+              </p>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-4">API & Intégrations</h3>
-            <p class="text-gray-600">
-              Développement d'APIs RESTful et intégration avec des services tiers.
-            </p>
+            
+            <div class="space-y-4">
+              <div class="flex items-start space-x-3">
+                <div class="w-2 h-2 bg-gray-800 rounded-full mt-2 flex-shrink-0"></div>
+                <span class="text-gray-700">APIs RESTful sécurisées</span>
+              </div>
+              <div class="flex items-start space-x-3">
+                <div class="w-2 h-2 bg-gray-800 rounded-full mt-2 flex-shrink-0"></div>
+                <span class="text-gray-700">Intégration de services tiers</span>
+              </div>
+              <div class="flex items-start space-x-3">
+                <div class="w-2 h-2 bg-gray-800 rounded-full mt-2 flex-shrink-0"></div>
+                <span class="text-gray-700">Authentification JWT</span>
+              </div>
+              <div class="flex items-start space-x-3">
+                <div class="w-2 h-2 bg-gray-800 rounded-full mt-2 flex-shrink-0"></div>
+                <span class="text-gray-700">Documentation API complète</span>
+              </div>
+            </div>
+            
+            <div class="mt-8 pt-6 border-t border-gray-100">
+              <div class="text-sm text-gray-500 mb-2">Technologies principales</div>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gray-100 text-gray-800 text-xs font-semibold rounded-full">Rails API</span>
+                <span class="px-3 py-1 bg-gray-100 text-gray-800 text-xs font-semibold rounded-full">GraphQL</span>
+                <span class="px-3 py-1 bg-gray-100 text-gray-800 text-xs font-semibold rounded-full">OAuth</span>
+              </div>
+            </div>
           </div>
         </div>
 
         <!-- Conseil & Formation -->
-        <div class="group">
-          <div class="relative p-8 bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:border-blue-100 transition-all duration-200">
-            <div class="text-blue-600 mb-4">
-              <i class="fas fa-chalkboard-teacher text-3xl"></i>
+        <div class="group relative">
+          <div class="relative p-8 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+            <div class="text-center mb-8">
+              <div class="w-20 h-20 bg-gray-700 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-chalkboard-teacher text-3xl text-white"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900 mb-4">Conseil & Formation</h3>
+              <p class="text-gray-600 leading-relaxed">
+                Accompagnement technique et formation sur Ruby on Rails et les bonnes pratiques de développement web.
+              </p>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-4">Conseil & Formation</h3>
-            <p class="text-gray-600">
-              Accompagnement technique et formation sur les technologies web modernes.
-            </p>
+            
+            <div class="space-y-4">
+              <div class="flex items-start space-x-3">
+                <div class="w-2 h-2 bg-gray-700 rounded-full mt-2 flex-shrink-0"></div>
+                <span class="text-gray-700">Audit technique d'applications</span>
+              </div>
+              <div class="flex items-start space-x-3">
+                <div class="w-2 h-2 bg-gray-700 rounded-full mt-2 flex-shrink-0"></div>
+                <span class="text-gray-700">Formation Ruby on Rails</span>
+              </div>
+              <div class="flex items-start space-x-3">
+                <div class="w-2 h-2 bg-gray-700 rounded-full mt-2 flex-shrink-0"></div>
+                <span class="text-gray-700">Mentoring d'équipes</span>
+              </div>
+              <div class="flex items-start space-x-3">
+                <div class="w-2 h-2 bg-gray-700 rounded-full mt-2 flex-shrink-0"></div>
+                <span class="text-gray-700">Bonnes pratiques de code</span>
+              </div>
+            </div>
+            
+            <div class="mt-8 pt-6 border-t border-gray-100">
+              <div class="text-sm text-gray-500 mb-2">Domaines d'expertise</div>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gray-100 text-gray-800 text-xs font-semibold rounded-full">Rails</span>
+                <span class="px-3 py-1 bg-gray-100 text-gray-800 text-xs font-semibold rounded-full">Tests</span>
+                <span class="px-3 py-1 bg-gray-100 text-gray-800 text-xs font-semibold rounded-full">Architecture</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section Processus -->
+      <div class="mt-20">
+        <div class="text-center mb-16">
+          <h3 class="text-3xl font-bold text-gray-900 mb-4">Mon Processus de Développement</h3>
+          <p class="text-lg text-gray-600">Une approche méthodique pour garantir la qualité et la réussite de votre projet</p>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-gray-900 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl font-bold text-white">1</span>
+            </div>
+            <h4 class="text-lg font-semibold text-gray-900 mb-2">Analyse & Conception</h4>
+            <p class="text-gray-600 text-sm">Étude de vos besoins et conception de l'architecture technique</p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 bg-gray-800 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl font-bold text-white">2</span>
+            </div>
+            <h4 class="text-lg font-semibold text-gray-900 mb-2">Développement</h4>
+            <p class="text-gray-600 text-sm">Création de l'application avec Ruby on Rails et tests automatisés</p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 bg-gray-700 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl font-bold text-white">3</span>
+            </div>
+            <h4 class="text-lg font-semibold text-gray-900 mb-2">Tests & Optimisation</h4>
+            <p class="text-gray-600 text-sm">Tests approfondis et optimisation des performances</p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 bg-gray-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl font-bold text-white">4</span>
+            </div>
+            <h4 class="text-lg font-semibold text-gray-900 mb-2">Déploiement</h4>
+            <p class="text-gray-600 text-sm">Mise en production et formation à l'utilisation</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Section Témoignages & Réalisations -->
+  <section class="relative py-20 bg-gray-50">
+      <!-- Section Réalisations -->
+      <div class="text-center mb-16">
+        <h3 class="text-3xl font-bold text-gray-900 mb-4">Quelques Réalisations</h3>
+        <p class="text-lg text-gray-600">Des projets variés qui démontrent la polyvalence de Ruby on Rails</p>
+      </div>
+
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <!-- Projet 1 -->
+        <div class="group relative">
+          <div class="relative p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+            <div class="w-12 h-12 bg-gray-900 rounded-xl flex items-center justify-center mb-4">
+              <i class="fas fa-shopping-cart text-white text-xl"></i>
+            </div>
+            <h4 class="text-lg font-semibold text-gray-900 mb-2">Plateforme E-commerce</h4>
+            <p class="text-gray-600 text-sm mb-4">
+              Application de vente en ligne complète avec gestion des commandes, paiements et stock.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded-full">Rails</span>
+              <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded-full">Stripe</span>
+              <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded-full">PostgreSQL</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Projet 2 -->
+        <div class="group relative">
+          <div class="relative p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+            <div class="w-12 h-12 bg-gray-800 rounded-xl flex items-center justify-center mb-4">
+              <i class="fas fa-chart-line text-white text-xl"></i>
+            </div>
+            <h4 class="text-lg font-semibold text-gray-900 mb-2">Dashboard Analytics</h4>
+            <p class="text-gray-600 text-sm mb-4">
+              Tableau de bord avec visualisations de données en temps réel et rapports automatisés.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded-full">Rails API</span>
+              <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded-full">Chart.js</span>
+              <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded-full">Redis</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Projet 3 -->
+        <div class="group relative">
+          <div class="relative p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+            <div class="w-12 h-12 bg-gray-700 rounded-xl flex items-center justify-center mb-4">
+              <i class="fas fa-users text-white text-xl"></i>
+            </div>
+            <h4 class="text-lg font-semibold text-gray-900 mb-2">Réseau Social</h4>
+            <p class="text-gray-600 text-sm mb-4">
+              Plateforme communautaire avec messagerie, notifications et système de recommandations.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded-full">Rails</span>
+              <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded-full">ActionCable</span>
+              <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded-full">Sidekiq</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA vers projets -->
+      <div class="text-center mt-16">
+        <%= link_to projects_path, 
+            class: "inline-flex items-center justify-center px-8 py-4 rounded-xl text-lg font-semibold text-white bg-gray-900 hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl", 
+            title: "Découvrir tous mes projets Ruby on Rails" do %>
+          <i class="fas fa-code-branch mr-3"></i>
+          <span>Voir tous mes projets</span>
+          <i class="fas fa-arrow-right ml-3"></i>
+        <% end %>
+      </div>
+    </div>
+  </section>
+
   <!-- Section Contact -->
-  <section id="contact" class="relative py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl mx-auto text-center">
-        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-8">
-          Travaillons ensemble
+  <section id="contact" class="relative py-20 bg-gray-900">
+    <!-- Fond décoratif -->
+    <div class="absolute inset-0 bg-[radial-gradient(#6b728010_1px,transparent_1px)] [background-size:20px_20px] opacity-20"></div>
+    
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl sm:text-5xl font-bold text-white mb-6">
+          Prêt à démarrer votre projet ?
         </h2>
-        <p class="text-lg text-gray-600 mb-12">
-          Vous avez un projet ? Je serais ravi d'en discuter et de voir comment je peux vous aider à le réaliser.
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+          Transformons ensemble vos idées en applications web performantes avec Ruby on Rails
         </p>
-        
-        <div class="flex flex-col sm:flex-row gap-6 justify-center">
-          <a href="mailto:contact@maximeoudin.fr" 
-             class="inline-flex items-center justify-center px-8 py-4 rounded-xl text-base font-medium text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 transform hover:scale-105 transition-all duration-200 shadow-md hover:shadow-lg">
-            <i class="fa-solid fa-envelope mr-2"></i>
-            <span>M'envoyer un email</span>
-          </a>
+      </div>
+
+      <div class="grid gap-12 lg:grid-cols-2 items-center">
+        <!-- Informations de contact -->
+        <div class="space-y-8">
+          <div>
+            <h3 class="text-2xl font-bold text-white mb-6">Parlons de votre projet</h3>
+            <p class="text-gray-300 leading-relaxed mb-8">
+              Que vous ayez une idée précise ou que vous souhaitiez explorer les possibilités, 
+              je serais ravi d'échanger avec vous sur votre projet web. 
+              <span class="text-blue-400 font-semibold">Consultation gratuite</span> pour évaluer vos besoins.
+            </p>
+          </div>
+
+          <!-- Avantages -->
+          <div class="space-y-4">
+            <div class="flex items-start space-x-3">
+              <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <i class="fas fa-check text-white text-xs"></i>
+              </div>
+              <span class="text-gray-300">Réponse sous 24h</span>
+            </div>
+            <div class="flex items-start space-x-3">
+              <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <i class="fas fa-check text-white text-xs"></i>
+              </div>
+              <span class="text-gray-300">Consultation gratuite</span>
+            </div>
+            <div class="flex items-start space-x-3">
+              <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <i class="fas fa-check text-white text-xs"></i>
+              </div>
+              <span class="text-gray-300">Devis détaillé sous 48h</span>
+            </div>
+            <div class="flex items-start space-x-3">
+              <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <i class="fas fa-check text-white text-xs"></i>
+              </div>
+              <span class="text-gray-300">Accompagnement personnalisé</span>
+            </div>
+          </div>
+
+          <!-- Coordonnées -->
+          <div class="space-y-4">
+            <div class="flex items-center space-x-3">
+              <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+                <i class="fas fa-envelope text-white"></i>
+              </div>
+              <div>
+                <div class="text-white font-semibold">Email</div>
+                <a href="mailto:contact@maximeoudin.fr" class="text-blue-400 hover:text-blue-300 transition-colors">
+                  contact@maximeoudin.fr
+                </a>
+              </div>
+            </div>
+            
+            <div class="flex items-center space-x-3">
+              <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+                <i class="fas fa-map-marker-alt text-white"></i>
+              </div>
+              <div>
+                <div class="text-white font-semibold">Localisation</div>
+                <div class="text-gray-300">Bordeaux, France</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formulaire de contact -->
+        <div class="bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/20">
+          <h3 class="text-2xl font-bold text-white mb-6">Contactez-moi</h3>
           
+          <div class="space-y-6">
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div>
+                <label class="block text-gray-300 text-sm font-medium mb-2">Nom</label>
+                <input type="text" class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Votre nom">
+              </div>
+              <div>
+                <label class="block text-gray-300 text-sm font-medium mb-2">Email</label>
+                <input type="email" class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="votre@email.com">
+              </div>
+            </div>
+            
+            <div>
+              <label class="block text-gray-300 text-sm font-medium mb-2">Sujet</label>
+              <select class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                <option value="" class="text-gray-900">Sélectionnez un sujet</option>
+                <option value="developpement" class="text-gray-900">Développement d'application</option>
+                <option value="api" class="text-gray-900">API & Intégrations</option>
+                <option value="conseil" class="text-gray-900">Conseil & Formation</option>
+                <option value="maintenance" class="text-gray-900">Maintenance & Support</option>
+                <option value="autre" class="text-gray-900">Autre</option>
+              </select>
+            </div>
+            
+            <div>
+              <label class="block text-gray-300 text-sm font-medium mb-2">Message</label>
+              <textarea rows="4" class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none" placeholder="Décrivez votre projet..."></textarea>
+            </div>
+            
+            <button type="submit" class="w-full bg-gray-800 hover:bg-gray-700 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl">
+              <i class="fas fa-paper-plane mr-2"></i>
+              Envoyer le message
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Réseaux sociaux -->
+      <div class="mt-16 text-center">
+        <h3 class="text-xl font-semibold text-white mb-6">Suivez-moi</h3>
+        <div class="flex justify-center space-x-6">
           <a href="https://www.linkedin.com/in/maxime-oudin-developer/" 
              target="_blank"
-             class="inline-flex items-center justify-center px-8 py-4 rounded-xl text-base font-medium text-gray-700 bg-white border-2 border-gray-200 hover:border-blue-200 transform hover:scale-105 transition-all duration-200 shadow-md hover:shadow-lg">
-            <i class="fab fa-linkedin mr-2 text-blue-600"></i>
-            <span>Me suivre sur LinkedIn</span>
+             class="w-12 h-12 bg-gray-800 hover:bg-gray-700 rounded-xl flex items-center justify-center text-white transition-all duration-300 shadow-lg hover:shadow-xl">
+            <i class="fab fa-linkedin text-xl"></i>
+          </a>
+          
+          <a href="https://github.com/maximeoudin" 
+             target="_blank"
+             class="w-12 h-12 bg-gray-700 hover:bg-gray-600 rounded-xl flex items-center justify-center text-white transition-all duration-300 shadow-lg hover:shadow-xl">
+            <i class="fab fa-github text-xl"></i>
+          </a>
+          
+          <a href="https://twitter.com/maximeoudin" 
+             target="_blank"
+             class="w-12 h-12 bg-gray-600 hover:bg-gray-500 rounded-xl flex items-center justify-center text-white transition-all duration-300 shadow-lg hover:shadow-xl">
+            <i class="fab fa-twitter text-xl"></i>
           </a>
         </div>
       </div>

@@ -22,6 +22,9 @@ class Project < ApplicationRecord
     validates :position, presence: true, uniqueness: true, numericality: { only_integer: true }
     validates :project_type, presence: true
 
+    has_many :project_tech_stacks
+    has_many :tech_stacks, through: :project_tech_stacks
+
     enum :project_type, {
         website: 0,
         platform: 10,
@@ -34,5 +37,5 @@ class Project < ApplicationRecord
     has_one_attached :main_picture
 
     has_rich_text :context
-
+    
 end
