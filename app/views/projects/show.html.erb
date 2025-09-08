@@ -96,6 +96,37 @@
           <% end %>
         </div>
 
+        <!-- Technologies utilisées -->
+        <% if @project.project_tech_stacks.any? %>
+          <div class="mt-6 pt-6 border-t border-gray-200">
+            <h3 class="text-sm font-medium text-gray-500 mb-4">Technologies utilisées</h3>
+            <div class="space-y-3">
+              <% @project.project_tech_stacks.includes(:tech_stack).order(:position).each do |pts| %>
+                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                  <div class="flex items-center">
+                    <span class="text-sm font-medium text-gray-900">
+                      <%= pts.tech_stack.name %>
+                    </span>
+                  </div>
+                  <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium
+                            <%= case pts.level
+                                when 'beginner'
+                                  'bg-blue-100 text-blue-800'
+                                when 'intermediate'
+                                  'bg-green-100 text-green-800'
+                                when 'advanced'
+                                  'bg-purple-100 text-purple-800'
+                                when 'expert'
+                                  'bg-red-100 text-red-800'
+                                end %>">
+                    <%= pts.level.titleize %>
+                  </span>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+
         <!-- Position dans le portfolio -->
         <div class="mt-6 pt-6 border-t border-gray-200">
           <h3 class="text-sm font-medium text-gray-500">Position dans le portfolio</h3>

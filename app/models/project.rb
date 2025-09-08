@@ -22,8 +22,12 @@ class Project < ApplicationRecord
     validates :position, presence: true, uniqueness: true, numericality: { only_integer: true }
     validates :project_type, presence: true
 
-    has_many :project_tech_stacks
+    has_many :project_tech_stacks, dependent: :destroy
     has_many :tech_stacks, through: :project_tech_stacks
+
+    accepts_nested_attributes_for :project_tech_stacks, 
+                                allow_destroy: true,
+                                reject_if: proc { |attributes| attributes['tech_stack_id'].blank? }
 
     enum :project_type, {
         website: 0,
@@ -35,7 +39,12 @@ class Project < ApplicationRecord
     }
 
     has_one_attached :main_picture
-
     has_rich_text :context
-    
+
+    private
+
+    before_validation :set_position, on: :create
+    def set_position
+        self.position ||= (Project.maximum(:position) || 0) + 1
+    end
 end
