@@ -8,4 +8,5 @@ Rails.application.routes.draw do
 
   root "pages#index"
   resources :projects
+  resources :tech_stacks
 end

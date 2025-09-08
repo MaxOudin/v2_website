@@ -1,11 +1,13 @@
 class ProjectsController < ApplicationController
     before_action :set_project, only: %i[show edit update destroy]
+    before_action :set_tech_stacks, only: %i[new create edit update]
 
     def index
-        @projects = Project.all
+        @projects = Project.includes(:tech_stacks).all
     end
 
     def show
+        @project = Project.includes(project_tech_stacks: :tech_stack).find(params[:id])
     end
 
     def new
@@ -14,8 +16,8 @@ class ProjectsController < ApplicationController
 
     def create
         @project = Project.new(project_params)
-
         if @project.save
+            create_or_update_tech_stacks
             redirect_to @project, notice: 'Projet créé avec succès.'
         else
             render :new, status: :unprocessable_entity
@@ -27,6 +29,7 @@ class ProjectsController < ApplicationController
 
     def update
         if @project.update(project_params)
+            create_or_update_tech_stacks
             redirect_to @project, notice: 'Projet mis à jour avec succès.'
         else
             render :edit, status: :unprocessable_entity
@@ -60,5 +63,30 @@ class ProjectsController < ApplicationController
 
     def set_project
         @project = Project.find(params[:id])
+    end
+
+    def set_tech_stacks
+        @tech_stacks = TechStack.order(:name)
+    end
+
+    def create_or_update_tech_stacks
+        return unless params[:project][:tech_stack_attributes].present?
+
+        # Supprime les associations existantes
+        @project.project_tech_stacks.destroy_all
+        
+        # Récupère les IDs des tech stacks sélectionnées (sans le blank)
+        tech_stack_ids = params[:project][:tech_stack_attributes].reject(&:blank?)
+        
+        # Récupère les niveaux correspondants
+        tech_stack_levels = params[:project][:tech_stack_levels] || []
+        
+        # Crée les nouvelles associations avec les niveaux
+        tech_stack_ids.each_with_index do |tech_stack_id, index|
+            @project.project_tech_stacks.create!(
+                tech_stack_id: tech_stack_id,
+                level: tech_stack_levels[index] || 'intermediate'
+            )
+        end
     end
 end

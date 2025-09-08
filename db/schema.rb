@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_09_01_055624) do
+ActiveRecord::Schema[7.1].define(version: 2025_09_06_054156) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -50,6 +50,17 @@ ActiveRecord::Schema[7.1].define(version: 2025_09_01_055624) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "project_tech_stacks", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.bigint "tech_stack_id", null: false
+    t.integer "position"
+    t.integer "level"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_project_tech_stacks_on_project_id"
+    t.index ["tech_stack_id"], name: "index_project_tech_stacks_on_tech_stack_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -200,6 +211,13 @@ ActiveRecord::Schema[7.1].define(version: 2025_09_01_055624) do
     t.index ["key"], name: "index_solid_queue_semaphores_on_key", unique: true
   end
 
+  create_table "tech_stacks", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -214,6 +232,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_09_01_055624) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "project_tech_stacks", "projects"
+  add_foreign_key "project_tech_stacks", "tech_stacks"
   add_foreign_key "solid_queue_blocked_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
   add_foreign_key "solid_queue_claimed_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
   add_foreign_key "solid_queue_failed_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade

@@ -1,0 +1,18 @@
+# == Schema Information
+#
+# Table name: tech_stacks
+#
+#  id          :bigint           not null, primary key
+#  name        :string
+#  description :text
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+one:
+  name: MyString
+  description: MyText
+
+two:
+  name: MyString
+  description: MyText
