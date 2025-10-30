@@ -14,12 +14,12 @@
     <div class="flex flex-col sm:flex-row justify-center items-center gap-6 mb-12" id="contact-infos">
       <%= link_to "tel:+33664710483", class: "flex items-center gap-3 px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-xl transition-colors duration-200 text-white" do %>
         <i class="fa-solid fa-phone text-lg"></i>
-        <span class="font-medium">Téléphone</span>
+        <span class="font-medium"><%= t("footer.telephone") %></span>
       <% end %>
 
       <%= link_to "mailto:contact@maximeoudin.fr", class: "flex items-center gap-3 px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-xl transition-colors duration-200 text-white" do %>
         <i class="fa-solid fa-envelope text-lg"></i>
-        <span class="font-medium">Email</span>
+        <span class="font-medium"><%= t("footer.email") %></span>
       <% end %>
     </div>
 
@@ -52,10 +52,5 @@
             class: "inline-block mt-2 text-gray-400 hover:text-white underline transition-colors duration-200" %>
       </div>
     </div>
-
-    <!-- Carbon badge -->
-    <div id="wcb" class="carbonbadge wcb-d mt-8 flex justify-center">
-    </div>
-    <script src="https://unpkg.com/website-carbon-badges@1.1.3/b.min.js" defer></script>
   </div>
 </footer>

@@ -9,12 +9,13 @@
     <%= stylesheet_link_tag "actiontext", "data-turbo-track": "reload" %>
     
     <%= stylesheet_link_tag 'application', 'data-turbo-track': "reload" %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
     <%= render "shared/navbar" %>
-    <main class="container mx-auto mt-28 px-5 flex" data-controller="hello">
+    <main class="container mx-auto md:mt-12 mt-8 px-5 flex">
       <%= yield %>
     </main>
     <%= render "shared/footer" %>
