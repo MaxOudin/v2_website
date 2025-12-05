@@ -1,0 +1,140 @@
+<section id="contact" class="relative py-20 bg-gray-900">
+    <!-- Fond décoratif -->
+    <div class="absolute inset-0 bg-[radial-gradient(#6b728010_1px,transparent_1px)] [background-size:20px_20px] opacity-20"></div>
+    
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl sm:text-5xl font-bold text-white mb-6">
+          Prêt à démarrer votre projet ?
+        </h2>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+          Transformons ensemble vos idées en applications web performantes avec Ruby on Rails
+        </p>
+      </div>
+
+      <div class="grid gap-12 lg:grid-cols-2 items-center">
+        <!-- Informations de contact -->
+        <div class="space-y-8">
+          <div>
+            <h3 class="text-2xl font-bold text-white mb-6">Parlons de votre projet</h3>
+            <p class="text-gray-300 leading-relaxed mb-8">
+              Que vous ayez une idée précise ou que vous souhaitiez explorer les possibilités, 
+              je serais ravi d'échanger avec vous sur votre projet web. 
+              <span class="text-blue-400 font-semibold">Consultation gratuite</span> pour évaluer vos besoins.
+            </p>
+          </div>
+
+          <!-- Avantages -->
+          <div class="space-y-4">
+            <div class="flex items-start space-x-3">
+              <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <i class="fas fa-check text-white text-xs"></i>
+              </div>
+              <span class="text-gray-300">Réponse sous 24h</span>
+            </div>
+            <div class="flex items-start space-x-3">
+              <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <i class="fas fa-check text-white text-xs"></i>
+              </div>
+              <span class="text-gray-300">Consultation gratuite</span>
+            </div>
+            <div class="flex items-start space-x-3">
+              <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <i class="fas fa-check text-white text-xs"></i>
+              </div>
+              <span class="text-gray-300">Devis détaillé sous 48h</span>
+            </div>
+            <div class="flex items-start space-x-3">
+              <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <i class="fas fa-check text-white text-xs"></i>
+              </div>
+              <span class="text-gray-300">Accompagnement personnalisé</span>
+            </div>
+          </div>
+
+          <!-- Coordonnées -->
+          <div class="space-y-4">
+            <div class="flex items-center space-x-3">
+              <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+                <i class="fas fa-envelope text-white"></i>
+              </div>
+              <div>
+                <div class="text-white font-semibold"><%= t("footer.email") %></div>
+                <a href="mailto:contact@maximeoudin.fr" class="text-blue-400 hover:text-blue-300 transition-colors">
+                  contact@maximeoudin.fr
+                </a>
+              </div>
+            </div>
+            
+            <div class="flex items-center space-x-3">
+              <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+                <i class="fas fa-map-marker-alt text-white"></i>
+              </div>
+              <div>
+                <div class="text-white font-semibold">Localisation</div>
+                <div class="text-gray-300">Bordeaux, France</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formulaire de contact -->
+        <div class="bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/20">
+          <h3 class="text-2xl font-bold text-white mb-6">Contactez-moi</h3>
+          
+          <div class="space-y-6">
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div>
+                <label class="block text-gray-300 text-sm font-medium mb-2">Nom</label>
+                <input type="text" class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Votre nom">
+              </div>
+              <div>
+                <label class="block text-gray-300 text-sm font-medium mb-2">Email</label>
+                <input type="email" class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="votre@email.com">
+              </div>
+            </div>
+            
+            <div>
+              <label class="block text-gray-300 text-sm font-medium mb-2">Sujet</label>
+              <select class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                <option value="" class="text-gray-900">Sélectionnez un sujet</option>
+                <option value="developpement" class="text-gray-900">Développement d'application</option>
+                <option value="api" class="text-gray-900">API & Intégrations</option>
+                <option value="conseil" class="text-gray-900">Conseil & Formation</option>
+                <option value="maintenance" class="text-gray-900">Maintenance & Support</option>
+                <option value="autre" class="text-gray-900">Autre</option>
+              </select>
+            </div>
+            
+            <div>
+              <label class="block text-gray-300 text-sm font-medium mb-2">Message</label>
+              <textarea rows="4" class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none" placeholder="Décrivez votre projet..."></textarea>
+            </div>
+            
+            <button type="submit" class="w-full bg-gray-800 hover:bg-gray-700 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl">
+              <i class="fas fa-paper-plane mr-2"></i>
+              Envoyer le message
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Réseaux sociaux -->
+      <div class="mt-16 text-center">
+        <h3 class="text-xl font-semibold text-white mb-6"><%= t("footer.follow_me") %></h3>
+        <div class="flex justify-center space-x-6">
+          <a href="https://www.linkedin.com/in/maxime-oudin-developer/" 
+             target="_blank"
+             class="w-12 h-12 bg-gray-600 hover:bg-gray-500 rounded-xl flex items-center justify-center text-white transition-all duration-300 shadow-lg hover:shadow-xl">
+            <i class="fab fa-linkedin text-xl"></i>
+          </a>
+          
+          <a href="https://github.com/MaxOudin" 
+             target="_blank"
+             class="w-12 h-12 bg-gray-700 hover:bg-gray-600 rounded-xl flex items-center justify-center text-white transition-all duration-300 shadow-lg hover:shadow-xl">
+            <i class="fab fa-github text-xl"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+</section>

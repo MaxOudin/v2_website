@@ -50,6 +50,10 @@
         <%= link_to "Mentions légales", "#", 
             aria_label: "Mentions légales", 
             class: "inline-block mt-2 text-gray-400 hover:text-white underline transition-colors duration-200" %>
+
+        <%= link_to new_user_session_path, class: "text-gray-400 hover:text-white transition-colors duration-200" do %>
+          <i class="fa-solid fa-lock"></i>
+        <% end %>
       </div>
     </div>
   </div>

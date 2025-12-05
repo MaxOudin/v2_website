@@ -1,0 +1,70 @@
+<section class="relative py-20 bg-gray-50">
+      <div class="text-center mb-16">
+        <h3 class="text-3xl font-bold text-gray-900 mb-4">Quelques Réalisations</h3>
+        <p class="text-lg text-gray-600">Des projets variés qui démontrent la polyvalence de Ruby on Rails</p>
+      </div>
+
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div class="group relative">
+          <div class="relative p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+            <div class="w-12 h-12 bg-gray-900 rounded-xl flex items-center justify-center mb-4">
+              <i class="fas fa-shopping-cart text-white text-xl"></i>
+            </div>
+            <h4 class="text-lg font-semibold text-gray-900 mb-2">Plateforme E-commerce</h4>
+            <p class="text-gray-600 text-sm mb-4">
+              Application de vente en ligne complète avec gestion des commandes, paiements et stock.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded-full">Rails</span>
+              <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded-full">Stripe</span>
+              <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded-full">PostgreSQL</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="group relative">
+          <div class="relative p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+            <div class="w-12 h-12 bg-gray-800 rounded-xl flex items-center justify-center mb-4">
+              <i class="fas fa-chart-line text-white text-xl"></i>
+            </div>
+            <h4 class="text-lg font-semibold text-gray-900 mb-2">Dashboard Analytics</h4>
+            <p class="text-gray-600 text-sm mb-4">
+              Tableau de bord avec visualisations de données en temps réel et rapports automatisés.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded-full">Rails API</span>
+              <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded-full">Chart.js</span>
+              <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded-full">Redis</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="group relative">
+          <div class="relative p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+            <div class="w-12 h-12 bg-gray-700 rounded-xl flex items-center justify-center mb-4">
+              <i class="fas fa-users text-white text-xl"></i>
+            </div>
+            <h4 class="text-lg font-semibold text-gray-900 mb-2">Réseau Social</h4>
+            <p class="text-gray-600 text-sm mb-4">
+              Plateforme communautaire avec messagerie, notifications et système de recommandations.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded-full">Rails</span>
+              <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded-full">ActionCable</span>
+              <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded-full">Sidekiq</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-16">
+        <%= link_to projects_path, 
+            class: "inline-flex items-center justify-center px-8 py-4 rounded-xl text-lg font-semibold text-white bg-gray-900 hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl", 
+            title: "Découvrir tous mes projets Ruby on Rails" do %>
+          <i class="fas fa-code-branch mr-3"></i>
+          <span>Voir tous mes projets</span>
+          <i class="fas fa-arrow-right ml-3"></i>
+        <% end %>
+      </div>
+    </div>
+</section>
