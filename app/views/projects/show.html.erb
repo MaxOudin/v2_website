@@ -1,3 +1,8 @@
+<% content_for :meta_product_name, "#{@project.title} - #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_title, "#{@project.title} - #{DEFAULT_META["meta_title"]}" %>
+<% content_for :meta_description, @project.description %>
+<% content_for :meta_image, @project.main_picture.attached? ? url_for(@project.main_picture) : DEFAULT_META["meta_image"] %>
+
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
   <!-- En-tête du projet -->
   <div class="mb-8">
