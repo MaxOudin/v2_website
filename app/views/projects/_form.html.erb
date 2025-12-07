@@ -27,12 +27,14 @@
 
       <div class="space-y-6 sm:space-y-5">
         <!-- Titre -->
-        <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
-          <%= f.label :title, class: "block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2" %>
-          <div class="mt-1 sm:col-span-2 sm:mt-0">
-            <%= f.text_field :title, class: "block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:max-w-xs sm:text-sm" %>
+        <% I18n.available_locales.each do |locale| %>
+          <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
+            <%= f.label "title_#{locale}", t("projects.form.title_#{locale}"), class: "block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2" %>
+            <div class="mt-1 sm:col-span-2 sm:mt-0">
+              <%= f.text_field "title_#{locale}", class: "block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:max-w-xs sm:text-sm" %>
+            </div>
           </div>
-        </div>
+        <% end %>
 
         <!-- Type de Projet -->
         <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
@@ -51,20 +53,24 @@
         </div>
 
         <!-- Description -->
-        <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
-          <%= f.label :description, class: "block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2" %>
-          <div class="mt-1 sm:col-span-2 sm:mt-0">
-            <%= f.text_area :description, rows: 4, class: "block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" %>
+        <% I18n.available_locales.each do |locale| %>
+          <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
+            <%= f.label "description_#{locale}", t("projects.form.description_#{locale}"), class: "block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2" %>
+            <div class="mt-1 sm:col-span-2 sm:mt-0">
+              <%= f.text_area "description_#{locale}", rows: 4, class: "block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" %>
+            </div>
           </div>
-        </div>
+        <% end %>
 
         <!-- Contexte (Rich Text) -->
-        <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
-          <%= f.label :context, class: "block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2" %>
-          <div class="mt-1 sm:col-span-2 sm:mt-0">
-            <%= f.rich_text_area :context, class: "block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" %>
+        <% I18n.available_locales.each do |locale| %>
+          <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
+            <%= f.label "context_#{locale}", t("projects.form.context_#{locale}"), class: "block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2" %>
+            <div class="mt-1 sm:col-span-2 sm:mt-0">
+              <%= f.rich_text_area "context_#{locale}", class: "block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" %>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
     </div>
 

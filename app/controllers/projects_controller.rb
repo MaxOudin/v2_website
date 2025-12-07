@@ -45,8 +45,9 @@ class ProjectsController < ApplicationController
     
     def project_params
         params.require(:project).permit(
-            :title, 
-            :description, 
+            *I18n.available_locales.map { |locale| "title_#{locale}" },
+            *I18n.available_locales.map { |locale| "description_#{locale}" },
+            *I18n.available_locales.map { |locale| "context_#{locale}" },
             :start_date, 
             :end_date, 
             :client_name, 
@@ -56,7 +57,6 @@ class ProjectsController < ApplicationController
             :color, 
             :position, 
             :project_type,
-            :context,
             :main_picture
         )
     end

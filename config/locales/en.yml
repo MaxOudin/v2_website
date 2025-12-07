@@ -154,3 +154,11 @@ en:
     telephone: Telephone
     email: Email
     follow_me: Follow me
+  projects:
+    form:
+      title_fr: Title (French)
+      title_en: Title (English)
+      description_fr: Description (French)
+      description_en: Description (English)
+      context_fr: Context (French)
+      context_en: Context (English)

@@ -18,7 +18,9 @@
 #  updated_at   :datetime         not null
 #
 class Project < ApplicationRecord
-    validates :title, presence: true, uniqueness: true
+    include Mobility
+    include TranslatableRichText
+
     validates :position, presence: true, uniqueness: true, numericality: { only_integer: true }
     validates :project_type, presence: true
 
@@ -38,8 +40,17 @@ class Project < ApplicationRecord
         other: 50
     }
 
-    has_one_attached :main_picture
+    has_one_attached :main_picture do |attachable|
+        attachable.variant :preview, resize_to_limit: [400, 400], preprocessed: true
+    end
+    
+    translates :title, type: :string
+    validates :title, presence: true, if: -> { I18n.locale == I18n.default_locale }
+
+    translates :description, type: :text
+
     has_rich_text :context
+    has_translated_rich_text :context
 
     private
 
