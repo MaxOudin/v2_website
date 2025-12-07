@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-    before_action :set_project, only: %i[show edit update destroy]
+    before_action :set_project, only: %i[show edit update destroy translate_field translate_all]
     before_action :set_tech_stacks, only: %i[new create edit update]
 
     def index
@@ -39,6 +39,109 @@ class ProjectsController < ApplicationController
     def destroy
         @project.destroy
         redirect_to projects_path, notice: 'Projet supprimé avec succès.'
+    end
+
+    def translate_field
+        @project = Project.find(params[:id])
+        field = params[:field]
+        from = params[:from] || I18n.default_locale
+        to = params[:to] || (I18n.available_locales - [from.to_sym]).first
+        force = params[:force] == "true" || params[:force] == true
+
+        begin
+            # Recharger le projet pour avoir les dernières données
+            @project.reload
+            
+            if [:title, :description].include?(field.to_sym)
+                # Champ Mobility
+                # Vérifier si on doit forcer ou si le champ est vide
+                existing = @project.public_send("#{field}_#{to}")
+                if !force && existing.present? && existing.to_s.strip.present?
+                    respond_to do |format|
+                        format.json { render json: { success: false, error: "Traduction déjà existante. Utilisez force=true pour forcer." } }
+                        format.html { redirect_to edit_project_path(@project), alert: "Traduction déjà existante." }
+                    end
+                    return
+                end
+                
+                result = @project.translate_mobility_field!(
+                    field: field.to_sym,
+                    from: from.to_sym,
+                    to: to.to_sym,
+                    context: "projet de développement web"
+                )
+            elsif field.to_sym == :context
+                # Champ RichText
+                # Vérifier si on doit forcer ou si le champ est vide
+                existing = @project.public_send("#{field}_#{to}")
+                if !force && existing.present? && existing.to_s.strip.present?
+                    respond_to do |format|
+                        format.json { render json: { success: false, error: "Traduction déjà existante. Utilisez force=true pour forcer." } }
+                        format.html { redirect_to edit_project_path(@project), alert: "Traduction déjà existante." }
+                    end
+                    return
+                end
+                
+                result = @project.translate_rich_text_field!(
+                    field: field.to_sym,
+                    from: from.to_sym,
+                    to: to.to_sym,
+                    context: "description détaillée de projet"
+                )
+            else
+                raise ArgumentError, "Champ non traduisible : #{field}"
+            end
+
+            respond_to do |format|
+                format.json { render json: { success: true, translated_text: result } }
+                format.html { redirect_to edit_project_path(@project), notice: "Traduction effectuée avec succès." }
+            end
+        rescue StandardError => e
+            Rails.logger.error("Erreur de traduction : #{e.message}")
+            Rails.logger.error(e.backtrace.first(5).join("\n"))
+            respond_to do |format|
+                format.json { render json: { success: false, error: e.message }, status: :unprocessable_entity }
+                format.html { redirect_to edit_project_path(@project), alert: "Erreur lors de la traduction : #{e.message}" }
+            end
+        end
+    end
+
+    def translate_all
+        @project = Project.find(params[:id])
+        from = params[:from] || I18n.default_locale
+        to = params[:to] || (I18n.available_locales - [from.to_sym])
+        force = params[:force] == "true" || params[:force] == true
+
+        begin
+            # Recharger le projet pour avoir les dernières données
+            @project.reload
+            
+            results = @project.translate_with_mistral!(
+                from: from.to_sym,
+                to: Array(to).map(&:to_sym),
+                context: "projet de développement web",
+                force: force
+            )
+
+            total = results[:mobility].size + results[:rich_text].size
+            message = if total > 0
+                        "#{total} champ(s) traduit(s) avec succès."
+                      else
+                        "Aucune traduction nécessaire. Tous les champs sont déjà traduits."
+                      end
+            
+            respond_to do |format|
+                format.json { render json: { success: true, translated_count: total, results: results, message: message } }
+                format.html { redirect_to edit_project_path(@project), notice: message }
+            end
+        rescue StandardError => e
+            Rails.logger.error("Erreur de traduction : #{e.message}")
+            Rails.logger.error(e.backtrace.first(5).join("\n"))
+            respond_to do |format|
+                format.json { render json: { success: false, error: e.message }, status: :unprocessable_entity }
+                format.html { redirect_to edit_project_path(@project), alert: "Erreur lors de la traduction : #{e.message}" }
+            end
+        end
     end
 
     private

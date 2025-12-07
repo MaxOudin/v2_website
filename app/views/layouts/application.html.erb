@@ -6,9 +6,11 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "trix/dist/trix", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "actiontext", "data-turbo-track": "reload" %>
     
-    <%= stylesheet_link_tag 'application', 'data-turbo-track': "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": Rails.env.production? ? "reload" : "" %>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>

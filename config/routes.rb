@@ -8,7 +8,12 @@ Rails.application.routes.draw do
     get "up" => "rails/health#show", as: :rails_health_check
 
     root "pages#index"
-    resources :projects
+    resources :projects do
+      member do
+        post :translate_field
+        post :translate_all
+      end
+    end
     resources :tech_stacks
   end
 end

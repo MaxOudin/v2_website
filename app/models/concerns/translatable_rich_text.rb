@@ -15,10 +15,10 @@ module TranslatableRichText
   def save_pending_translations
     return if @pending_translations.blank?
 
-    @pending_translations.each do |locale, content|
+    @pending_translations.each do |(field_name, locale), content|
       rich_text = translated_rich_texts.find_or_initialize_by(
-        field_name: self.class.translation_field_name,
-        locale: locale
+        field_name: field_name.to_s,
+        locale: locale.to_s
       )
       rich_text.body = content
       rich_text.save
@@ -29,11 +29,19 @@ module TranslatableRichText
   class_methods do
     attr_reader :translation_field_name
 
+    def translated_rich_text_fields
+      @translated_rich_text_fields ||= []
+    end
+
     def has_translated_rich_text(field_name)
       extend Mobility
 
       # Stocke le nom du champ pour l'utiliser dans les callbacks
       @translation_field_name = field_name
+      
+      # Ajoute le champ à la liste des champs traduisibles
+      @translated_rich_text_fields ||= []
+      @translated_rich_text_fields << field_name.to_sym unless @translated_rich_text_fields.include?(field_name.to_sym)
 
       # Configuration Mobility pour le champ
       translates field_name, type: :string
@@ -46,7 +54,7 @@ module TranslatableRichText
         define_method("#{field_name}_#{locale}") do
           @pending_translations ||= {}
           # Vérifie d'abord les traductions en attente
-          pending_content = @pending_translations[locale]
+          pending_content = @pending_translations[[field_name, locale]]
           return pending_content if pending_content.present?
 
           # Sinon, cherche dans la base de données
@@ -69,7 +77,7 @@ module TranslatableRichText
 
         define_method("#{field_name}_#{locale}=") do |content|
           @pending_translations ||= {}
-          @pending_translations[locale] = content
+          @pending_translations[[field_name, locale]] = content
         end
       end
 

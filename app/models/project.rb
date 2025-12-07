@@ -20,6 +20,7 @@
 class Project < ApplicationRecord
     include Mobility
     include TranslatableRichText
+    include MistralTranslatable
 
     validates :position, presence: true, uniqueness: true, numericality: { only_integer: true }
     validates :project_type, presence: true

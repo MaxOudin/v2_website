@@ -37,8 +37,11 @@ trix-editor {
   @apply border border-gray-300 rounded-md overflow-hidden;
 }
 
+/* Styles pour les boutons Trix - on préserve les images de fond (icônes) */
 .trix-button {
-  @apply p-2 border-r border-gray-300 text-gray-600 hover:bg-gray-50;
+  @apply border-r border-gray-300 hover:bg-gray-50;
+  /* Ne pas écraser les background-image qui contiennent les icônes SVG */
+  padding: 0.5rem;
 }
 
 .trix-content {
