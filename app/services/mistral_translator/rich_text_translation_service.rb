@@ -131,3 +131,4 @@ module MistralTranslator
     end
   end
 end
+

@@ -18,64 +18,41 @@
     </div>
   <% end %>
 
-  <div class="space-y-8 divide-y divide-gray-200 sm:space-y-5">
+  <div class="space-y-8 divide-y divide-gray-200 sm:space-y-5 mb-4">
     <div class="space-y-6 sm:space-y-5">
       <div>
         <h3 class="text-lg font-medium leading-6 text-gray-900">Informations Principales</h3>
         <p class="mt-1 max-w-2xl text-sm text-gray-500">Informations essentielles du projet.</p>
       </div>
-
+      <div class="flex justify-end">
+        <% if project.persisted? %>
+          <%= button_tag type: :button, 
+              class: "inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500",
+              data: { 
+                action: "click->mistral-translator#translateAll",
+                from: I18n.default_locale,
+                url: translate_all_project_path(project),
+                confirm: "Voulez-vous traduire tous les champs depuis le #{I18n.default_locale} vers les autres langues ?"
+              } do %>
+            Traduire tout avec IA
+          <% end %>
+        <% end %>
+      </div>
       <div class="space-y-6 sm:space-y-5">
         <!-- Titre -->
         <% I18n.available_locales.each do |locale| %>
           <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
             <%= f.label "title_#{locale}", t("projects.form.title_#{locale}"), class: "block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2" %>
-            <div class="mt-1 sm:col-span-2 sm:mt-0 flex gap-2">
+            <div class="mt-1 sm:col-span-2 sm:mt-0">
               <%= f.text_field "title_#{locale}", class: "block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:max-w-xs sm:text-sm" %>
-              <% if locale != I18n.default_locale && project.persisted? %>
-                <%= form_with url: translate_field_project_path(project), method: :post, local: false, 
-                    class: "inline-block",
-                    data: { 
-                      field: "title_#{locale}",
-                      confirm: "Voulez-vous traduire le titre depuis le #{I18n.default_locale} vers le #{locale} ?"
-                    } do |form| %>
-                  <%= form.hidden_field :field, value: "title" %>
-                  <%= form.hidden_field :from, value: I18n.default_locale %>
-                  <%= form.hidden_field :to, value: locale %>
-                  <%= form.button type: :submit, class: "inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" do %>
-                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
-                    </svg>
-                    IA
-                  <% end %>
-                <% end %>
-              <% end %>
             </div>
           </div>
 
           <!-- Description -->
           <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
             <%= f.label "description_#{locale}", t("projects.form.description_#{locale}"), class: "block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2" %>
-            <div class="mt-1 sm:col-span-2 sm:mt-0 flex gap-2">
+            <div class="mt-1 sm:col-span-2 sm:mt-0">
               <%= f.text_area "description_#{locale}", rows: 4, class: "block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" %>
-              <% if locale != I18n.default_locale && project.persisted? %>
-                <%= form_with url: translate_field_project_path(project), method: :post, local: false,
-                    class: "inline-block",
-                    data: { 
-                      field: "description_#{locale}",
-                      confirm: "Voulez-vous traduire la description depuis le #{I18n.default_locale} vers le #{locale} ?"
-                    } do |form| %>
-                  <%= form.hidden_field :field, value: "description" %>
-                  <%= form.hidden_field :from, value: I18n.default_locale %>
-                  <%= form.hidden_field :to, value: locale %>
-                  <%= form.button type: :submit, class: "inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" do %>
-                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
-                    </svg>
-                    IA
-                  <% end %>
-                <% end %>
-              <% end %>
             </div>
           </div>
 
@@ -83,26 +60,6 @@
           <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
             <%= f.label "context_#{locale}", t("projects.form.context_#{locale}"), class: "block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2" %>
             <div class="mt-1 sm:col-span-2 sm:mt-0">
-              <div class="flex gap-2 mb-2">
-                <% if locale != I18n.default_locale && project.persisted? %>
-                  <%= form_with url: translate_field_project_path(project), method: :post, local: false,
-                      class: "inline-block",
-                      data: { 
-                        field: "context_#{locale}",
-                        confirm: "Voulez-vous traduire le contexte depuis le #{I18n.default_locale} vers le #{locale} ?"
-                      } do |form| %>
-                    <%= form.hidden_field :field, value: "context" %>
-                    <%= form.hidden_field :from, value: I18n.default_locale %>
-                    <%= form.hidden_field :to, value: locale %>
-                    <%= form.button type: :submit, class: "inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" do %>
-                      <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
-                      </svg>
-                      Traduire le contexte avec IA
-                    <% end %>
-                  <% end %>
-                <% end %>
-              </div>
               <%= f.rich_text_area "context_#{locale}", class: "block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" %>
             </div>
           </div>
@@ -207,27 +164,10 @@
     </div>
   </div>
 
-  <div class="pt-5">
-    <div class="flex justify-between items-center">
-      <% if project.persisted? %>
-        <%= form_with url: translate_all_project_path(project), method: :post, local: false,
-            class: "inline-block",
-            data: { 
-              confirm: "Voulez-vous traduire tous les champs depuis le #{I18n.default_locale} vers les autres langues ?"
-            } do |form| %>
-          <%= form.hidden_field :from, value: I18n.default_locale %>
-          <%= form.button type: :submit, class: "inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500" do %>
-            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
-            </svg>
-            Traduire tout avec IA
-          <% end %>
-        <% end %>
-      <% end %>
-      <div class="flex justify-end">
-        <%= link_to "Annuler", projects_path, class: "rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" %>
-        <%= f.submit class: "ml-3 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" %>
-      </div>
+  <div class="pt-5 mb-4">
+    <div class="flex justify-end items-center gap-2">
+      <%= link_to "Annuler", projects_path, class: "rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" %>
+      <%= f.submit class: "inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" %>
     </div>
   </div>
 <% end %>

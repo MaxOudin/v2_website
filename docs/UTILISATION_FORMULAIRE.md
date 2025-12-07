@@ -98,3 +98,4 @@ En cas d'erreur :
 2. **Langue par défaut** : Les traductions partent toujours de la langue par défaut (français)
 3. **Traductions existantes** : Si une traduction existe déjà, elle sera remplacée
 4. **Rate limiting** : Un délai est appliqué entre les requêtes pour respecter les limites de l'API
+

@@ -24,14 +24,18 @@ module MistralTranslator
       }
 
       # Séparer les champs Mobility et RichText
+      # IMPORTANT: Les champs RichText ont la priorité car ils peuvent aussi être dans Mobility
       mobility_fields = []
       rich_text_fields = []
 
       fields.each do |field|
-        if is_mobility_field?(record, field)
-          mobility_fields << field
-        elsif is_rich_text_field?(record, field)
+        # Vérifier d'abord si c'est un RichText (priorité)
+        # Les champs RichText ne doivent pas être traités comme Mobility
+        if is_rich_text_field?(record, field)
           rich_text_fields << field
+        elsif is_mobility_field?(record, field)
+          # Ne pas ajouter si c'est déjà dans RichText
+          mobility_fields << field unless is_rich_text_field?(record, field)
         end
       end
 
@@ -104,9 +108,17 @@ module MistralTranslator
     def detect_translatable_fields(record)
       fields = []
 
-      # Détecter les champs Mobility
+      # Détecter les champs Mobility (exclure ceux qui sont aussi RichText)
       if record.class.respond_to?(:mobility_attributes)
-        fields.concat(record.class.mobility_attributes.map(&:to_s))
+        mobility_fields = record.class.mobility_attributes.map(&:to_s)
+        # Détecter les champs RichText pour les exclure
+        rich_text_fields = if record.class.respond_to?(:translated_rich_text_fields)
+                             record.class.translated_rich_text_fields.map(&:to_s)
+                           else
+                             []
+                           end
+        # Ajouter seulement les champs Mobility qui ne sont pas RichText
+        fields.concat(mobility_fields - rich_text_fields)
       end
 
       # Détecter les champs RichText
@@ -114,13 +126,14 @@ module MistralTranslator
         fields.concat(record.class.translated_rich_text_fields.map(&:to_s))
       end
 
-      fields
+      fields.uniq
     end
 
     def is_mobility_field?(record, field)
       return false unless record.class.respond_to?(:mobility_attributes)
 
-      record.class.mobility_attributes.include?(field.to_sym)
+      # mobility_attributes retourne un tableau de strings, pas de symboles
+      record.class.mobility_attributes.map(&:to_s).include?(field.to_s)
     end
 
     def is_rich_text_field?(record, field)

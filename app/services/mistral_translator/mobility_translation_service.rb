@@ -21,11 +21,17 @@ module MistralTranslator
       end
 
       translated_fields = []
+      Rails.logger.info("[MistralTranslator] Traduction Mobility: #{fields.inspect} (#{source_locale} → #{target_locales.inspect})")
+      
       target_locales.each do |target_locale|
         next if source_locale == target_locale.to_sym
 
         Array(fields).each do |field|
-          next unless record.class.mobility_attributes.include?(field.to_sym)
+          # Vérifier que le champ est bien dans mobility_attributes (comme string, pas symbol)
+          unless record.class.mobility_attributes.map(&:to_s).include?(field.to_s)
+            Rails.logger.debug("[MistralTranslator] Champ #{field} n'est pas un attribut Mobility")
+            next
+          end
 
           source_value = record.public_send("#{field}_#{source_locale}")
           if source_value.nil? || source_value.to_s.strip.empty?
@@ -90,3 +96,4 @@ module MistralTranslator
     end
   end
 end
+

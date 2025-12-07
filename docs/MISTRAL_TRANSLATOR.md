@@ -7,6 +7,11 @@ Le service de traduction Mistral permet de traduire automatiquement les champs t
 - **Champs Mobility** : string et text
 - **Champs RichText** : ActionText (rich text)
 
+## Documentation complémentaire
+
+- **[Traduction dans le formulaire](./TRADUCTION_FORMULAIRE.md)** : Guide d'utilisation des boutons de traduction dans le formulaire de projet
+- **[Exemples d'utilisation](./EXEMPLE_MISTRAL.md)** : Exemples de code pour utiliser le service
+
 ## Configuration
 
 ### Variables d'environnement
@@ -344,8 +349,24 @@ Assurez-vous que :
 
 Augmentez le `rate_limit_delay` dans la configuration ou utilisez les jobs asynchrones pour espacer les requêtes.
 
+## Traduction depuis le formulaire
+
+Le formulaire de projet inclut des boutons pour traduire directement depuis l'interface. Voir la [documentation complète](./TRADUCTION_FORMULAIRE.md) pour plus de détails.
+
+### Utilisation rapide
+
+1. Remplissez les champs en français (langue par défaut)
+2. Cliquez sur le bouton "IA" à côté du champ dans la langue cible
+3. La traduction apparaît automatiquement dans le champ
+
+### Bouton de traduction globale
+
+Le bouton "Traduire tout avec IA" en bas du formulaire traduit tous les champs d'un coup.
+
 ## Support
 
 Pour toute question ou problème, consultez :
 - La documentation de l'API Mistral : https://docs.mistral.ai
 - Les logs Rails pour les erreurs détaillées
+- La [documentation du formulaire](./TRADUCTION_FORMULAIRE.md) pour les problèmes d'interface
+

@@ -34,3 +34,4 @@ class MistralTranslationJob < ApplicationJob
     raise e
   end
 end
+

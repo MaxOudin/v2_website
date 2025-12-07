@@ -253,3 +253,4 @@ end
 4. **Vérifiez les traductions existantes** avant de traduire pour éviter les appels API inutiles
 5. **Gérez les erreurs** avec des try/catch appropriés
 6. **Respectez les rate limits** en utilisant les délais configurés
+

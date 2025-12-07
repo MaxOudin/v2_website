@@ -73,3 +73,4 @@ namespace :mistral_translator do
     end
   end
 end
+

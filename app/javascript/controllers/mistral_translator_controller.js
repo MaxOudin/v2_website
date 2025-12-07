@@ -15,47 +15,68 @@ export default class extends Controller {
     document.removeEventListener("ajax:error", this.handleError.bind(this))
   }
 
-  handleSuccess(event) {
-    const [data, status, xhr] = event.detail
-    const button = event.target.closest("form") || event.target
+  translateAll(event) {
+    const button = event.currentTarget
+    const from = button.dataset.from
+    const url = button.dataset.url
+    const confirmMessage = button.dataset.confirm
 
-    if (data.success && data.translated_text) {
-      // Trouver le champ correspondant
-      const fieldName = button.dataset.field
-      if (fieldName) {
-        // Chercher le champ input ou textarea
-        let field = document.querySelector(`[name="${fieldName}"]`)
-        
-        if (field) {
-          if (field.tagName === "TEXTAREA" || field.type === "text" || field.type === "hidden") {
-            field.value = data.translated_text
-            // Déclencher l'événement input pour que les frameworks réactifs détectent le changement
-            field.dispatchEvent(new Event("input", { bubbles: true }))
-          }
+    if (confirmMessage && !confirm(confirmMessage)) {
+      return
+    }
+
+    // Désactiver le bouton pendant la requête
+    button.disabled = true
+    const originalText = button.innerHTML
+    button.innerHTML = '<span class="animate-spin">⏳</span>'
+
+    const csrfToken = document.querySelector('meta[name="csrf-token"]')?.content
+
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "X-CSRF-Token": csrfToken,
+        "Accept": "application/json"
+      },
+      body: new URLSearchParams({
+        from: from,
+        authenticity_token: csrfToken
+      })
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          const count = data.translated_count || 0
+          this.showNotification(
+            count > 0 
+              ? `${count} champ(s) traduit(s) avec succès !` 
+              : "Aucune traduction nécessaire.",
+            "success"
+          )
+          // Recharger la page pour voir les changements
+          setTimeout(() => {
+            window.location.reload()
+          }, 1500)
         } else {
-          // Pour les champs ActionText/Trix, chercher l'input hidden
-          const hiddenInput = document.querySelector(`input[type="hidden"][name="${fieldName}"]`)
-          if (hiddenInput) {
-            // Trouver l'éditeur Trix associé
-            const trixEditor = hiddenInput.closest("trix-toolbar")?.parentElement?.querySelector("trix-editor")
-            if (trixEditor && trixEditor.editor) {
-              trixEditor.editor.loadHTML(data.translated_text)
-              // Mettre à jour aussi l'input hidden
-              hiddenInput.value = data.translated_text
-            }
-          }
+          this.showNotification(data.error || "Erreur lors de la traduction", "error")
         }
-        
-        // Afficher un message de succès
-        this.showNotification("Traduction effectuée avec succès !", "success")
-      } else if (data.success && data.translated_count) {
-        // Traduction de tous les champs
-        this.showNotification(`${data.translated_count} champ(s) traduit(s) avec succès !`, "success")
-        // Recharger la page pour voir les changements
-        setTimeout(() => {
-          window.location.reload()
-        }, 1500)
-      }
+      })
+      .catch(error => {
+        console.error("Erreur:", error)
+        this.showNotification("Une erreur est survenue lors de la traduction", "error")
+      })
+      .finally(() => {
+        button.disabled = false
+        button.innerHTML = originalText
+      })
+  }
+
+  handleSuccess(event) {
+    // Garder pour compatibilité avec les anciens formulaires si nécessaire
+    const [data, status, xhr] = event.detail
+    if (data.success && data.translated_text) {
+      this.showNotification("Traduction effectuée avec succès !", "success")
     }
   }
 
@@ -80,3 +101,4 @@ export default class extends Controller {
     }, 3000)
   }
 }
+

@@ -43,3 +43,4 @@ end
 
 # Les services sont chargés automatiquement par Zeitwerk
 # Pas besoin de require_dependency avec la structure de dossiers correcte
+
