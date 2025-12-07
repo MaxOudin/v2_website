@@ -3,41 +3,22 @@
       <div class="lg:grid lg:grid-cols-12 lg:gap-16 items-center">
         <!-- Contenu principal -->
         <div class="text-center lg:text-left lg:col-span-7">
-          <!-- En-tête avec mise en avant Ruby on Rails -->
-          <div class="space-y-6">
-            <h1 class="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight">
-              <span class="text-gray-900">Maxime Oudin</span>
-            </h1>
-            
-            <!-- Spécialisation Ruby on Rails mise en avant -->
-            <div class="flex flex-col items-center lg:items-start space-y-4">
-              <div class="flex items-center space-x-3">
-                <%= image_tag "yellow_logo.svg", class: "w-10 h-10", alt: "Logo Maxime Oudin - Développeur Ruby on Rails Bordeaux" %>
-                <span class="text-2xl text-gray-800 font-semibold">Développeur web indépendant</span>
-              </div>
-              
-              <!-- Badges de compétences -->
-              <div class="flex flex-wrap gap-3 justify-center lg:justify-start">
-                <span class="px-4 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded-full border border-gray-200">
-                  <i class="fab fa-ruby mr-2"></i>Ruby on Rails
-                </span>
-                <span class="px-4 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded-full border border-gray-200">
-                  <i class="fab fa-js-square mr-2"></i>JavaScript
-                </span>
-                <span class="px-4 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded-full border border-gray-200">
-                  <i class="fas fa-database mr-2"></i>PostgreSQL
-                </span>
-              </div>
+
+          <!-- Spécialisation Ruby on Rails mise en avant -->
+          <div class="flex flex-col items-center lg:items-start space-y-4">
+            <div class="flex items-center space-x-3">
+              <span class="text-2xl text-gray-800 font-semibold">Développeur web indépendant</span>
             </div>
           </div>
 
           <!-- Description améliorée -->
           <div class="mt-10 space-y-4">
             <p class="text-xl text-gray-700 max-w-3xl mx-auto lg:mx-0 leading-relaxed">
-              Je transforme vos <span class="font-bold text-gray-900">idées en applications web robustes</span> avec 
-              <span class="font-bold text-gray-900">Ruby on Rails</span> et les technologies modernes. 
-              Spécialisé dans le développement <span class="font-semibold text-gray-800">full-stack</span> et les 
-              <span class="font-semibold text-gray-800">APIs performantes</span>.
+              Je transforme vos <span class="font-bold text-gray-900">idées en solutions web robustes</span> avec les technologies modernes. 
+              Besoin d'un site web accroître votre visibilité ou d'un outil numérique pour améliorer votre productivité ?
+            </p>
+            <p class="text-xl text-gray-700 max-w-3xl mx-auto lg:mx-0 leading-relaxed">
+              Construisons ensemble votre projet.
             </p>
           </div>
 
@@ -56,21 +37,25 @@
               <div class="text-sm text-gray-600">Satisfaction client</div>
             </div>
           </div>
-        </div>
-        
-        <div class="lg:col-span-5">
+
           <!-- Boutons CTA sobres -->
           <div class="mt-12 flex flex-col sm:flex-row gap-6 justify-center lg:justify-start">
             <%= link_to projects_path, 
-                class: "inline-flex items-center justify-center px-4 py-2 rounded-xl text-lg font-semibold text-gray-900 bg-white border-2 border-gray-300 hover:border-gray-400 hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-xl",
+                class: "inline-flex items-center justify-center px-4 py-2 rounded-xl text-lg font-semibold text-gray-900 bg-white hover:border-gray-400 hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105",
                 title: "Découvrir mes projets Ruby on Rails" do %>
               <span>Voir mes réalisations</span>
             <% end %>
 
             <a href="#contact" 
-               class= "inline-flex items-center justify-center px-4 py-2 rounded-xl text-lg font-semibold text-white bg-gray-900 hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl">
+               class= "inline-flex items-center justify-center px-4 py-2 rounded-xl text-lg font-semibold text-white bg-gray-900 hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
               <span>Me contacter</span>
             </a>
+          </div>
+        </div>
+        
+        <div class="lg:col-span-5">
+          <div class="flex justify-center items-center">
+            <%= image_tag "yellow_logo.svg", class: "w-40 h-40 rounded-full", alt: "Logo Maxime Oudin - Développeur Ruby on Rails Bordeaux" %>
           </div>
         </div>      
       </div>

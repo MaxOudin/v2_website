@@ -15,7 +15,8 @@ gem "pg", ">= 1.4"
 gem "puma", ">= 5.0"
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
-gem "importmap-rails"
+# gem "importmap-rails"
+gem "jsbundling-rails", "~> 1.3"
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
@@ -86,6 +87,3 @@ group :test do
   # # Helper pour les tests Models et Pundit
   gem 'shoulda-matchers', '~> 6.0'
 end
-
-
-

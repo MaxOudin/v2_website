@@ -3,7 +3,8 @@
     <div class="flex justify-between items-center h-[52px] md:h-16">
       <!-- Logo -->
       <%= link_to "/", class: "flex-shrink-0 flex items-center" do %>
-        <%= t("navbar.home") %>
+        <%= image_tag "yellow_logo.svg", class: "w-10 h-10 rounded-full", alt: "Logo Maxime Oudin - Développeur Ruby on Rails Bordeaux" %>
+        <span class="text-2xl text-gray-800 font-semibold ml-2">Maxime Oudin</span>
       <% end %>
 
       <!-- Actions visibles sur mobile -->
