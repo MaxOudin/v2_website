@@ -1,9 +1,12 @@
 class ProjectsController < ApplicationController
     before_action :set_project, only: %i[show edit update destroy translate_field translate_all]
+    before_action :set_project_for_new, only: :new
     before_action :set_tech_stacks, only: %i[new create edit update]
+    before_action :authorize_project, except: :index
+    after_action :verify_authorized, except: :index
 
     def index
-        @projects = Project.includes(:tech_stacks).all
+        @projects = policy_scope(Project).includes(:tech_stacks).all
     end
 
     def show
@@ -11,7 +14,6 @@ class ProjectsController < ApplicationController
     end
 
     def new
-        @project = Project.new
     end
 
     def create
@@ -166,6 +168,14 @@ class ProjectsController < ApplicationController
 
     def set_project
         @project = Project.find(params[:id])
+    end
+
+    def set_project_for_new
+        @project = Project.new
+    end
+
+    def authorize_project
+        authorize @project
     end
 
     def set_tech_stacks

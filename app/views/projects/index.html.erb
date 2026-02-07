@@ -10,10 +10,12 @@
       <h1 class="text-3xl sm:text-4xl font-bold text-gray-900">Mes Projets</h1>
       <p class="mt-2 text-lg text-gray-600">Découvrez mes réalisations récentes</p>
     </div>
-    <%= link_to new_project_path, 
+    <% if policy(Project).new? %>
+      <%= link_to new_project_path, 
         class: "inline-flex items-center px-6 py-3 rounded-xl text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105" do %>
-      <i class="fas fa-plus mr-2"></i>
-      <span>Nouveau Projet</span>
+        <i class="fas fa-plus mr-2"></i>
+        <span>Nouveau Projet</span>
+      <% end %>
     <% end %>
   </div>
 
